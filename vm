@@ -13,6 +13,7 @@ if [ $# -eq 0 ]
     echo "exec"
     echo "npm"
     echo "self-update"
+    echo "composer"
 fi
 
 if [[ $1 = "artisan" ]] ; then
@@ -43,6 +44,10 @@ fi
 
 if [[ $1 = "npm" ]] ; then
     docker exec ${NAME}_web_1 npm "${@:2}"
+fi
+
+if [[ $1 = "composer" ]] ; then
+    docker exec excelsior_web_1 composer "${@:2}"
 fi
 
 if [[ $1 = "self-update" ]] ; then
