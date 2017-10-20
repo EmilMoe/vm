@@ -12,6 +12,7 @@ if [ $# -eq 0 ]
     echo "phpunit"
     echo "exec"
     echo "npm"
+    echo "self-update"
 fi
 
 if [[ $1 = "artisan" ]] ; then
@@ -42,4 +43,9 @@ fi
 
 if [[ $1 = "npm" ]] ; then
     docker exec ${NAME}_web_1 npm "${@:2}"
+fi
+
+if [[ $1 = "self-update" ]] ; then
+    curl -s https://raw.githubusercontent.com/EmilMoe/vm/master/vm > vm
+    echo "Updated"
 fi
