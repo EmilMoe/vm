@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME=${PWD##*/} | tr '[:upper:]' '[:lower:]'}
+NAME=$(echo ${PWD##*/} | tr '[:upper:]' '[:lower:]')
 
 if [ $# -eq 0 ]
   then
