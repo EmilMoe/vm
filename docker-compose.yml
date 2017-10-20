@@ -20,3 +20,4 @@ services:
         - DATABASE=${DB_DATABASE}
     ports:
         - 3306:3306
+
