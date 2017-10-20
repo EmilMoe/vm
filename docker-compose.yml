@@ -12,7 +12,7 @@ services:
     user: local
 
   # The Database
-  database
+  database:
     env_file:
       - .env:
     build: git@github.com:EmilMoe/sqld.git
