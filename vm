@@ -1,0 +1,33 @@
+#!/bin/bash
+
+NAME=
+
+if [[ $1 = "artisan" ]] ; then
+    docker exec ${NAME}_web_1 php artisan "${@:2}"
+fi
+
+if [[ $1 = "build" ]] ; then
+    docker-compose up --build -d
+fi
+
+if [[ $1 = "start" ]] ; then
+    docker container start ${NAME}_database_1
+    docker container start ${NAME}_web_1
+fi
+
+if [[ $1 = "stop" ]] ; then
+    docker container stop ${NAME}_database_1
+    docker container stop ${NAME}_web_1
+fi
+
+if [[ $1 = "phpunit" ]] ; then
+    docker exec ${NAME}_web_1 vendor/phpunit/phpunit/phpunit "${@:2}"
+fi
+
+if [[ $1 = "exec" ]] ; then
+    docker exec ${NAME}_web_1 "${@:2}"
+fi
+
+if [[ $1 = "npm" ]] ; then
+    docker exec ${NAME}_web_1 npm "${@:2}"
+fi
