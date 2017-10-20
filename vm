@@ -48,7 +48,7 @@ if [[ $1 = "npm" ]] ; then
 fi
 
 if [[ $1 = "composer" ]] ; then
-    docker exec excelsior_web_1 composer "${@:2}"
+    docker exec ${NAME}_web_1 composer "${@:2}"
 fi
 
 if [[ $1 = "self-update" ]] ; then
