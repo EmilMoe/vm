@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  # The Web Server
+  web:
+    env_file:
+      - .env
+    build: https://github.com/EmilMoe/httpd.git
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 80:80
+    user: local
+
+  # The Database
+  database:
+    env_file:
+      - .env
+    environment:
+        - DATABASE=${DB_DATABASE}
+    build: https://github.com/EmilMoe/sqld.git
+    ports:
+        - 3306:3306
