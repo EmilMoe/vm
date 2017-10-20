@@ -14,7 +14,7 @@ services:
   # The Database
   database:
     env_file:
-      - .env:
+      - .env
     build: git@github.com:EmilMoe/sqld.git
     environment:
         - DATABASE=${DB_DATABASE}
