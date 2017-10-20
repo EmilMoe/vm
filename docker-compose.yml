@@ -4,7 +4,7 @@ services:
   web:
     env_file:
       - .env
-    build: https://github.com/EmilMoe/httpd.git
+    build: git@github.com:EmilMoe/httpd.git
     volumes:
       - .:/var/www/html
     ports:
@@ -12,11 +12,11 @@ services:
     user: local
 
   # The Database
-  database:
+  database
     env_file:
-      - .env
+      - .env:
+    build: git@github.com:EmilMoe/sqld.git
     environment:
         - DATABASE=${DB_DATABASE}
-    build: https://github.com/EmilMoe/sqld.git
     ports:
         - 3306:3306
