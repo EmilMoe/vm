@@ -2,6 +2,18 @@
 
 NAME=
 
+if [ $# -eq 0 ]
+  then
+    echo "Options are:"
+    echo "artisan"
+    echo "build"
+    echo "start"
+    echo "stop"
+    echo "phpunit"
+    echo "exec"
+    echo "npm"
+fi
+
 if [[ $1 = "artisan" ]] ; then
     docker exec ${NAME}_web_1 php artisan "${@:2}"
 fi
