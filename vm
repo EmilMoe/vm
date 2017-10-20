@@ -21,6 +21,7 @@ if [[ $1 = "artisan" ]] ; then
 fi
 
 if [[ $1 = "build" ]] ; then
+    curl https://raw.githubusercontent.com/EmilMoe/vm/master/docker-compose.yml > docker-compose.yml
     docker-compose up --build -d
 fi
 
