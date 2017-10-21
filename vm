@@ -26,6 +26,10 @@ if [[ $1 = "build" ]] ; then
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
         curl https://raw.githubusercontent.com/EmilMoe/vm/master/docker-compose.yml > docker-compose.yml
         docker-compose up --build -d
+
+        ./vm composer -n install || echo ""
+        ./vm npm install --no-optional || echo ""
+        ./vm php artisan migrate --seed || echo ""
     fi
 fi
 
