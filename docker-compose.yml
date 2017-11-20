@@ -10,6 +10,7 @@ services:
       - .:/var/www/html
     ports:
       - 80:80
+      - 9515:9515
     user: local
 
   # The Database
