@@ -27,8 +27,8 @@ if [[ $1 = "build" ]] ; then
         curl https://raw.githubusercontent.com/EmilMoe/vm/master/docker-compose.yml > docker-compose.yml
         docker-compose up --build -d
 
-        ./vm artisan key:generate
         ./vm composer -n install
+        ./vm artisan key:generate
         ./vm npm install --no-optional
         ./vm php artisan migrate --seed
         ./vm npm run dev
