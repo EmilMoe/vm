@@ -14,6 +14,7 @@ if [ $# -eq 0 ]
     echo "npm"
     echo "self-update"
     echo "composer"
+    echo "upgrade"
 fi
 
 if [[ $1 = "artisan" ]] ; then
@@ -64,4 +65,11 @@ fi
 if [[ $1 = "self-update" ]] ; then
     curl -s https://raw.githubusercontent.com/EmilMoe/vm/master/vm > vm
     echo "Updated"
+fi
+
+if [[ $1 = "upgrade" ]] ; then
+    docker exec ${NAME}_web_1 sudo apt-get update
+    docker exec ${NAME}_database_1 sudo apt-get update
+    docker exec ${NAME}_web_1 sudo apt-get upgrade -y
+    docker exec ${NAME}_database_1 sudo apt-get upgrade -y
 fi
