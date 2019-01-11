@@ -2,7 +2,7 @@ version: '3.3'
 services:
   # The Web Server
   web:
-    container_name: ${NAME}_web
+    container_name: ${APP_NAME}_web
     env_file:
       - .env
     build: 
@@ -16,7 +16,7 @@ services:
 
   # The Database
   database:
-    container_name: ${NAME}_database
+    container_name: ${APP_NAME}_database
     env_file:
       - .env
     build: 
