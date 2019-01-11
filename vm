@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#NAME=$(echo "${PWD##*/}" | tr '[:upper:]' '[:lower:]' | tr -d '.')
-
 source .env
 NAME=${APP_NAME}
 
