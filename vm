@@ -27,7 +27,7 @@ if [[ $1 = "build" ]] ; then
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
         curl https://raw.githubusercontent.com/EmilMoe/vm/master/docker-compose.yml > docker-compose.yml
-        docker-compose up --build -d
+        docker-compose up --build --no-cache -d
 
         ./vm composer -n install
         ./vm artisan key:generate
