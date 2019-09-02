@@ -38,29 +38,29 @@ if [[ $1 = "build" ]] ; then
 fi
 
 if [[ $1 = "start" ]] ; then
-    docker container start ${NAME}_database
-    docker container start ${NAME}_web
+    # docker container start ${NAME}_database
+    docker container start ${NAME}
 fi
 
 if [[ $1 = "stop" ]] ; then
-    docker container stop ${NAME}_database
-    docker container stop ${NAME}_web
+    # docker container stop ${NAME}_database
+    docker container stop ${NAME}
 fi
 
 if [[ $1 = "phpunit" ]] ; then
-    docker exec ${NAME}_web vendor/phpunit/phpunit/phpunit "${@:2}"
+    docker exec ${NAME} vendor/phpunit/phpunit/phpunit "${@:2}"
 fi
 
 if [[ $1 = "exec" ]] ; then
-    docker exec ${NAME}_web "${@:2}"
+    docker exec ${NAME} "${@:2}"
 fi
 
 if [[ $1 = "npm" ]] ; then
-    docker exec ${NAME}_web npm "${@:2}"
+    docker exec ${NAME} npm "${@:2}"
 fi
 
 if [[ $1 = "composer" ]] ; then
-    docker exec ${NAME}_web composer "${@:2}"
+    docker exec ${NAME} composer "${@:2}"
 fi
 
 if [[ $1 = "self-update" ]] ; then
@@ -69,8 +69,8 @@ if [[ $1 = "self-update" ]] ; then
 fi
 
 if [[ $1 = "upgrade" ]] ; then
-    docker exec ${NAME}_web sudo apt-get update
-    docker exec ${NAME}_database sudo apt-get update
-    docker exec ${NAME}_web sudo apt-get upgrade -y
-    docker exec ${NAME}_database sudo apt-get upgrade -y
+    docker exec ${NAME} sudo apt-get update
+    # docker exec ${NAME}_database sudo apt-get update
+    docker exec ${NAME} sudo apt-get upgrade -y
+    # docker exec ${NAME}_database sudo apt-get upgrade -y
 fi
