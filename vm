@@ -38,12 +38,12 @@ if [[ $1 = "build" ]] ; then
 fi
 
 if [[ $1 = "start" ]] ; then
-    # docker container start ${NAME}_database
+    docker container start ${NAME}_database
     docker container start ${NAME}
 fi
 
 if [[ $1 = "stop" ]] ; then
-    # docker container stop ${NAME}_database
+    docker container stop ${NAME}_database
     docker container stop ${NAME}
 fi
 
@@ -70,7 +70,9 @@ fi
 
 if [[ $1 = "upgrade" ]] ; then
     docker exec ${NAME} sudo apt-get update
-    # docker exec ${NAME}_database sudo apt-get update
+    docker exec ${NAME}_database sudo apt-get update
     docker exec ${NAME} sudo apt-get upgrade -y
-    # docker exec ${NAME}_database sudo apt-get upgrade -y
+    docker exec ${NAME}_database sudo apt-get upgrade -y
+    docker exec -it ${NAME}
+    docker exec -it ${NAME}_database
 fi
