@@ -11,19 +11,16 @@ services:
       - .:/var/www/html
     ports:
       - 80:80
-      - 9515:9515
-      - 3306:3306
     user: local
 
   # The Database
-  #database:
-  #  container_name: ${APP_NAME}_database
-  #  env_file:
-  #    - .env
-  #  build: 
-  #    context: https://github.com/EmilMoe/sqld.git
-  #  environment:
-  #      - DATABASE=${DB_DATABASE}
-  #  ports:
-  #      - 3306:3306
-
+  database:
+    container_name: ${APP_NAME}_database
+    env_file:
+      - .env
+    build: 
+      context: https://github.com/EmilMoe/sqld.git
+    environment:
+        - DATABASE=${DB_DATABASE}
+    ports:
+        - 3306:3306
